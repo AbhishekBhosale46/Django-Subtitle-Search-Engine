@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import UploadVideoForm
+from . import tasks
 
 def home(request):
     return render(request, 'search_engine/home.html')
@@ -24,7 +25,7 @@ def upload_video(request):
                     temp_video_file.write(chunk)
 
             """ Enqueue the task into task queue (redis) """
-
+            tasks.process_video.delay(video_file_name)
 
             return redirect('home')
     else:
