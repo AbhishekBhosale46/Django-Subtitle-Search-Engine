@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload - Subtitle Search Engine</title>
+    <title>Search - Subtitle Search Engine</title>
 </head>
 <body>
     <h1>SubTitle Search Engine</h1>
     <hr>
     <nav>
-        <h1>Upload Video Page</h1>
+        <h1>Availabel Videos</h1>
         <ul>
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'upload_video' %}">Upload Video</a></li>
@@ -18,10 +18,10 @@
         </ul>
     </nav>
     <hr>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Upload">
-    </form>
+    <ol>
+        {% for video in videos %}
+            <li><a href="{% url 'search_video' video.id%}">{{video.video_name}}</a></li>
+        {% endfor %}
+    </ol>
 </body>
 </html>
