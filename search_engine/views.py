@@ -19,13 +19,13 @@ def upload_video(request):
             video_file_extension = str(video_file).split('.')[1]
 
             """ Store the video temporarily in media directory """
-            temp_video_file_path = 'media/temp.'+video_file_extension
+            temp_video_file_path = f'media/{video_file_name}.{video_file_extension}'
             with open(temp_video_file_path, 'wb') as temp_video_file:
                 for chunk in video_file.chunks():
                     temp_video_file.write(chunk)
 
             """ Enqueue the task into task queue (redis) """
-            tasks.process_video.delay(video_file_name)
+            tasks.process_video.delay(video_file_name, video_file_extension)
 
             return redirect('home')
     else:
