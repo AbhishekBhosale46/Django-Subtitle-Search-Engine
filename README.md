@@ -97,3 +97,9 @@ Run the Django server
 ```bash
   python manage.py runserver
 ```
+
+## SnapShots
+[![1.png](https://i.postimg.cc/3JcV6Tsw/1.png)](https://postimg.cc/crfFgV4q)
+[![2.png](https://i.postimg.cc/Cx0P9xvS/2.png)](https://postimg.cc/gnMHZmFT)
+[![3.png](https://i.postimg.cc/BQ9M1vfH/3.png)](https://postimg.cc/4nPzDsdx)
+[![4.png](https://i.postimg.cc/WzLgtSfr/4.png)](https://postimg.cc/XGLpzKW7)
